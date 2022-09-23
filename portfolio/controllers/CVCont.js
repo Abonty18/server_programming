@@ -15,13 +15,13 @@ const getCV=(req,res)=>
 
      
 
-     experience=[];
+     exp=[];
      for(let key in experience)
      {
-          experience.push(experience[key]);
+          exp.push(experience[key]);
      }}
 
-     res.render("cv",{name:"Labiba Farah",educations:edus},{name:"Labiba Farah",experience:experience});
+     res.render("cv",{name:"Labiba Farah",educations:edus,experience:exp});
 
 
 };
