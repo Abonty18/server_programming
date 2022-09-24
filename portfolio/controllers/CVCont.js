@@ -7,6 +7,10 @@ const getCV=(req,res)=>
      experience=fs.readFileSync("data/experience",{encoding:"utf-8"});
      experience=JSON.parse(String(experience));
 
+     var username=req.body.username;
+     var useremail=req.body.useremail;
+     var f={username: username, useremail:useremail};
+
      {edus=[];
      for(let key in educations)
      {
@@ -21,7 +25,7 @@ const getCV=(req,res)=>
           exp.push(experience[key]);
      }}
 
-     res.render("cv",{name:"Labiba Farah",educations:edus,experience:exp});
+     res.render("cv",{username:"Labiba Farah",educations:edus,experience:exp,useremail:"labibafarah@iut-dhaka.edu"});
 
 
 };
