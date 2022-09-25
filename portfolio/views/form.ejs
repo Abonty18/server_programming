@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto"
+      href="https://fonts.googleapis.com/css?family=Roboto Condensed"
     />
     <link
       rel="stylesheet"
@@ -23,14 +23,18 @@
       h4,
       h5,
       h6 {
-        font-family: "Roboto", sans-serif;
+        font-family: "Roboto Condensed", sans-serif;
+        font-size: larger;
+        font-weight: bold;
+        
       }
     </style>
   </head>
-  <body class="w3-light-grey">
+  <body class="w3-light-grey" style=" justify-content: center; display: flex; height: 350px; ">
     <!-- Page Container -->
-    <div class="w3-container w3-card w3-white w3-margin-bottom">
+    <div class="w3-container w3-card w3-white w3-margin-bottom" >
         <form action="/form" method="POST">
+            <label  style="text-align: justify; text-justify: inter-word;">Account Update</label><br><br>
             <!-- Creating the parameter Username as type= "text"-->
             <label>Username: </label>
             <input type="text" placeholder="Name" name="username"><br><br>
