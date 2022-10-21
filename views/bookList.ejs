@@ -20,6 +20,7 @@
         <th>Book Name</th>
         <th>Author</th>
         <th>Genre</td>
+        <th>Actions</th>
     </tr>
 
 
@@ -28,6 +29,8 @@
             <td><%=books[i].name%></td>
             <td><%=books[i].author%></td>
             <td><%=books[i].genre%></td>
+            <<td><a  href="books-delete/<%=books[i].id%>">Delete</a>
+            <a  href="updateBook/<%=books[i].id%>">Update</a></td>
         </tr>
     <%}%>
 </table>

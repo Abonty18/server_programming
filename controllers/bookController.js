@@ -8,7 +8,7 @@ const getBookList = async (req, res) => {
     data = await bookModel.find();
     console.log(data);
     data.forEach((book) => {
-      books.push({ name: book.name, author: book.author, genre: book.genre });
+      books.push({ name: book.name, author: book.author, genre: book.genre, id: book._id });
     });
   } catch (error) {
     console.log(error);
@@ -39,5 +39,47 @@ const postBook = (req, res) => {
       res.redirect("/books");
     });
 };
+const delBook =async (req, res) => {
+  let data=[];
+  let books=[];
+  try{
+    data=await bookModel.deleteOne();
+    console.log(data);
+  }
+  catch(error){
+    console.log(error);
+  }
+  finally{
+    res.redirect("/book-list");
+  }
 
-module.exports = { getBookList, getBook, postBook };
+
+};
+
+const getUpdateBook = async (req, res) => {
+  try {
+    const post = await bookModel.findById(req.params.id);
+    console.log(req.params.id);
+    res.render("updateBook", { book: post });
+  } catch (err) {
+    res.json({ message: err });
+  }
+}
+
+  const updateBook = async (req, res) => {
+    try {
+      const post = await bookModel.findById(req.params.id);
+      post.name = req.body.name;
+      post.author = req.body.author;
+      post.genre = req.body.genre;
+      post.save();
+      res.json(post);
+    }
+    catch (err) {
+      res.json({ message: err });
+    }
+  };
+
+
+
+  module.exports = { getBookList, getBook, postBook, delBook, updateBook,getUpdateBook };
