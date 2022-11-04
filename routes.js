@@ -8,12 +8,12 @@ const passport = require('passport');
 
 
 
-
 router.get("/", homeController.getHome);
 router.get('/login', homeController.getLogin);
 router.get('/logout', homeController.logOut);
-router.get("/book-list", bookController.getBookList);
-router.get("/books", bookController.getBook);
+router.get('/register', homeController.getRegister);
+router.get("/book-list", connectEnsureLogin.ensureLoggedIn(), bookController.getBookList);
+router.get("/books",  connectEnsureLogin.ensureLoggedIn(),bookController.getBook);
 router.get('/dashboard', connectEnsureLogin.ensureLoggedIn(), homeController.getDashboard);
 router.post("/books", bookController.postBook);
 router.post(
@@ -22,5 +22,7 @@ router.post(
       failureRedirect: '/login',
       successRedirect: '/dashboard',
     }),homeController.postLogin);
+router.post('/register', homeController.postRegister);
+
 
 module.exports = router;

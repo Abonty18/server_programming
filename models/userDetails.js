@@ -8,7 +8,7 @@ require('dotenv').config();
 //   useUnifiedTopology: true,
 // });
 
-// Setting up the schema
+// Setting up the schecma
 const User = new mongoose.Schema({
   username: String,
   password: String,

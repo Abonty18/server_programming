@@ -1,3 +1,4 @@
+const UserDetails = require('../models/userDetails');
 const getHome = (req, res) => {
   res.render('index', { title: 'Home' });
 };
@@ -8,6 +9,22 @@ const getLogin = (req, res) => {
 
 const postLogin = (req, res) => {
   console.log(req.user);
+}
+
+const getRegister = (req, res) => {
+  res.render('register', { title: 'Register' });
+  
+ 
+      
+};
+const postRegister = (req, res) => {
+
+    let name = req.body.username;
+    let password = req.body.password;
+    UserDetails.register({username:name, active: false}, password);
+    res.redirect('/dashboard');
+    
+    
 }
 
 const getDashboard = (req, res) =>{
@@ -23,4 +40,4 @@ const logOut = (req, res)=>{
 
 
 
-module.exports = { getHome, getLogin, postLogin, getDashboard, logOut };
+module.exports = { getHome, getLogin, postLogin, getDashboard, logOut,getRegister,postRegister };
