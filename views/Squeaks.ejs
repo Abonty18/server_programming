@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squeaks</title>
+</head>
+<body>
+    <form method="POST" action="/Squeaks">
+         <div>Show Messages Of </div>
+        <select name="receiver" id="sender">
+            <option >Select User</option>
+          <% for(let i = 0; i<user.length; i++){ %>
+            <% if(user[i]["name"]!= "@everyone"){ %> 
+            <option ><%= user[i]["name"] %></option>
+            <%}%>
+        <%}%>
+        </select>
+          <input type="submit" value="Search" />
+        </form>
+        <br><br>
+    <div>Squeaks</div>
+  
+    <% for(let i = 0; i<squeaks.length; i++){ %>
+        <div class="w3-container">
+            <% if(squeaks[i]["Receiver"]== receiver || squeaks[i]["Receiver"]== "@everyone" ) {%>
+          <h5 class="w3-opacity"><b><%= squeaks[i]["Sender"] %></b></h5>
+          <p><%= squeaks[i]["Message"] %></p>
+          <hr />
+        </div>
+        <%}%>
+        <%}%>
+    
+</body>
+</html>

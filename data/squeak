@@ -1,0 +1,18 @@
+[
+  {},
+  {
+    "Sender": "Farah",
+    "Receiver": "Farah",
+    "Message": "hi"
+  },
+  {
+    "Sender": "Abonty",
+    "Receiver": "@everyone",
+    "Message": "who?"
+  },
+  {
+    "Sender": "Labiba",
+    "Receiver": "Abonty",
+    "Message": "noe"
+  }
+]
